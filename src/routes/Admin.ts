@@ -22,6 +22,10 @@ import {
 	Statistics,
 	ArchiveProduct,
 	AddAdminUser,
+	GetAllInfluencers,
+	GetInfluencerById,
+	AddNewInfluencer,
+	EditInfluencer,
 } from '../controllers'
 import {ValidateAddProductBody, ValidateAdminAuth} from '../middlewares'
 
@@ -54,5 +58,9 @@ router.route('/admin').delete(ValidateAdminAuth, DeleteAdmin)
 router.route('/balance').get(ValidateAdminAuth, GetBalance)
 router.route('/transactions').get(ValidateAdminAuth, GetTransactions)
 router.route('/statistics').get(ValidateAdminAuth, Statistics)
+router.route('/influencers').get(ValidateAdminAuth, GetAllInfluencers)
+router.route('/influencer').get(ValidateAdminAuth, GetInfluencerById)
+router.route('/influencer').post(ValidateAdminAuth, AddNewInfluencer)
+router.route('/influencer').put(ValidateAdminAuth, EditInfluencer)
 
 export default router
