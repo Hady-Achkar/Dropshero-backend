@@ -1,0 +1,8 @@
+export {default as AuthRouter} from './Auth'
+export {default as ProductsRouter} from './Products'
+export {default as UsersRouter} from './Users'
+export {default as PaymentsRouter} from './Payments'
+export {default as BundlesRouter} from './Bundles'
+export {default as UtilsRouter} from './Utils'
+export {default as WebhooksRouter} from './Webhooks'
+export {default as AdminRouter} from './Admin'
