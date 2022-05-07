@@ -8,8 +8,8 @@ import {
 	BundlesRouter,
 	UtilsRouter,
 	AdminRouter,
+	InfluencersRouter,
 } from './routes'
-
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import multer from 'multer'
@@ -46,6 +46,7 @@ const main = async () => {
 	app.use('/bundles', BundlesRouter)
 	app.use('/utils', UtilsRouter)
 	app.use('/admin', AdminRouter)
+	app.use('/influencers', InfluencersRouter)
 	app.listen(process.env.MAIN_PORT, () => {
 		console.log(`[i] Server is listening on port ${process.env.MAIN_PORT}`)
 	})

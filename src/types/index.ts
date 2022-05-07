@@ -10,7 +10,7 @@ export type {IContact} from './IContact'
 export {AccountStatus, BundleType, AdminRoles} from './enums'
 export type {IAdmin} from './IAdmin'
 export type {IAddProduct} from './IAddProduct'
-
+export * from './IInfulencer'
 export interface CustomRequest<T> extends Request {
 	readonly body: T
 }
