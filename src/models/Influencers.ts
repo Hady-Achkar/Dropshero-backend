@@ -20,7 +20,7 @@ const InfluencersSchema = new Schema<IInfulencer>(
 			required: [true, 'category is a required field'],
 		},
 		followers: {
-			type: Number,
+			type: String,
 			required: [true, 'followers is a required field'],
 		},
 		country: {

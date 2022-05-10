@@ -4,7 +4,7 @@ export interface IInfulencer extends Document {
 	channelName: string
 	platform: string
 	category: string
-	followers: number
+	followers: string
 	country: string
 	description: string
 	youtube: string
