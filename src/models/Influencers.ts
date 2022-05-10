@@ -28,14 +28,27 @@ const InfluencersSchema = new Schema<IInfulencer>(
 			trim: true,
 			required: [true, 'country is a required field'],
 		},
-		age: {
-			type: Number,
-			required: [true, 'age is a required field'],
+		youtube: {
+			type: String,
+		},
+		instagram: {
+			type: String,
+		},
+		snapchat: {
+			type: String,
+		},
+		tiktok: {
+			type: String,
 		},
 		description: {
 			type: String,
 			trim: true,
 			required: [true, 'description is a required field'],
+		},
+		language: {
+			type: String,
+			trim: true,
+			required: [true, 'language is a required field'],
 		},
 		image: {
 			type: String,

@@ -6,7 +6,11 @@ export interface IInfulencer extends Document {
 	category: string
 	followers: number
 	country: string
-	age: number
 	description: string
+	youtube: string
+	instagram: string
+	tiktok: string
+	snapchat: string
 	image: string
+	language: string
 }

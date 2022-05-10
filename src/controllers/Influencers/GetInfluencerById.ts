@@ -35,7 +35,6 @@ export default async (req: Request, res: Response) => {
 		if (!_influencer) {
 			return res.status(404).json({
 				status: 'Failure',
-
 				message: 'influencer does not exist',
 				field: 'influencerId',
 			})
