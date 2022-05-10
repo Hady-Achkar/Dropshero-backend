@@ -26,6 +26,7 @@ import {
 	GetInfluencerById,
 	AddNewInfluencer,
 	EditInfluencer,
+	DeleteInfluencer,
 } from '../controllers'
 import {ValidateAddProductBody, ValidateAdminAuth} from '../middlewares'
 
@@ -62,5 +63,6 @@ router.route('/influencers').get(ValidateAdminAuth, GetAllInfluencers)
 router.route('/influencer').get(ValidateAdminAuth, GetInfluencerById)
 router.route('/influencer').post(ValidateAdminAuth, AddNewInfluencer)
 router.route('/influencer').put(ValidateAdminAuth, EditInfluencer)
+router.route('/influencer').delete(ValidateAdminAuth, DeleteInfluencer)
 
 export default router
