@@ -40,7 +40,11 @@ export default async (req: CustomRequest<IInfulencer>, res: Response) => {
 			platform,
 			category,
 			followers,
-			age,
+			language,
+			tiktok,
+			snapchat,
+			instagram,
+			youtube,
 		} = req.body
 
 		let influencerData = {}
@@ -82,8 +86,20 @@ export default async (req: CustomRequest<IInfulencer>, res: Response) => {
 		if (followers && followers !== 0) {
 			influencerData = {...influencerData, followers: followers}
 		}
-		if (age && age !== 0) {
-			influencerData = {...influencerData, age: age}
+		if (language && language !== '') {
+			influencerData = {...influencerData, language: language}
+		}
+		if (youtube && youtube !== '') {
+			influencerData = {...influencerData, youtube: youtube}
+		}
+		if (instagram && instagram !== '') {
+			influencerData = {...influencerData, instagram: instagram}
+		}
+		if (tiktok && tiktok !== '') {
+			influencerData = {...influencerData, tiktok: tiktok}
+		}
+		if (snapchat && snapchat !== '') {
+			influencerData = {...influencerData, snapchat: snapchat}
 		}
 
 		const UPDATED_INFLUENCER = await Influencers.findByIdAndUpdate(

@@ -12,7 +12,11 @@ export default async (req: CustomRequest<IInfulencer>, res: Response) => {
 			platform,
 			category,
 			followers,
-			age,
+			youtube,
+			instagram,
+			tiktok,
+			snapchat,
+			language,
 		} = req.body
 
 		const _influencer = await Influencers.create({
@@ -23,7 +27,11 @@ export default async (req: CustomRequest<IInfulencer>, res: Response) => {
 			platform,
 			category,
 			followers,
-			age,
+			youtube,
+			instagram,
+			snapchat,
+			tiktok,
+			language,
 		})
 
 		return res.status(200).json({
