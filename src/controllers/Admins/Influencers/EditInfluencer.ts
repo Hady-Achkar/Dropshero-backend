@@ -83,7 +83,7 @@ export default async (req: CustomRequest<IInfulencer>, res: Response) => {
 		if (category && category !== '') {
 			influencerData = {...influencerData, category: category}
 		}
-		if (followers && followers !== 0) {
+		if (followers && followers !== '') {
 			influencerData = {...influencerData, followers: followers}
 		}
 		if (language && language !== '') {
