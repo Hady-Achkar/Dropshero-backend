@@ -35,7 +35,7 @@ export default async (req: Request, res: Response) => {
 		const resetToken = v4()
 		const key = process.env.FORGET_PASSWORD_PREFIX + resetToken
 
-		SendEmail(
+		await SendEmail(
 			`${_verifyUser?.fname} ${_verifyUser?.lname}`,
 			_verifyUser?.email,
 			'Reset Password',
