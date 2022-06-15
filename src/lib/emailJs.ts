@@ -19,12 +19,13 @@ const sendEmail = async (
 ) => {
 	try {
 		let transporter = nodemailer.createTransport({
+			service: 'gmail',
 			host: 'smtp.gmail.com',
 			port: 587,
-			secure: false, // true for 465, false for other ports
+			secure: false,
 			auth: {
 				user: 'dropsheromail@gmail.com', // generated ethereal user
-				pass: 'HadiAsh123', // generated ethereal password
+				pass: 'oawtgysfhuqlqssu', // generated ethereal password
 			},
 		})
 		await transporter.sendMail({
