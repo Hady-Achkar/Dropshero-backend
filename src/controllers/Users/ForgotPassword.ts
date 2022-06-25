@@ -7,10 +7,10 @@ import {SendEmail} from '../../lib'
 
 export default async (req: Request, res: Response) => {
 	try {
-		// const RedisClient = createClient()
-		// await RedisClient.connect()
-		// RedisClient.on('error', (err) => console.log('Redis Client Error', err))
-		// RedisClient.on('connect', (err) => console.log('Redis Client Error', err))
+		const RedisClient = createClient()
+		await RedisClient.connect()
+		RedisClient.on('error', (err) => console.log('Redis Client Error', err))
+		RedisClient.on('connect', (err) => console.log('Redis Client Error', err))
 		const {email: USER_EMAIL} = req.body
 		if (!USER_EMAIL || USER_EMAIL === '') {
 			return res.status(400).json({
@@ -33,7 +33,7 @@ export default async (req: Request, res: Response) => {
 		}
 
 		const resetToken = v4()
-		// const key = process.env.FORGET_PASSWORD_PREFIX + resetToken
+		const key = process.env.FORGET_PASSWORD_PREFIX + resetToken
 
 		await SendEmail(
 			`${_verifyUser?.fname} ${_verifyUser?.lname}`,
@@ -51,7 +51,7 @@ export default async (req: Request, res: Response) => {
 		const payload = {
 			userId: _verifyUser,
 		}
-		// await RedisClient.setEx(key, 3600, JSON.stringify(payload))
+		await RedisClient.setEx(key, 3600, JSON.stringify(payload))
 		return res.status(204).json({
 			status: 'Success',
 			message: 'Email sent successfully',
