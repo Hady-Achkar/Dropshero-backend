@@ -11,6 +11,7 @@ export {AccountStatus, BundleType, AdminRoles} from './enums'
 export type {IAdmin} from './IAdmin'
 export type {IAddProduct} from './IAddProduct'
 export * from './IInfulencer'
+export * from './IStore'
 export interface CustomRequest<T> extends Request {
 	readonly body: T
 }
