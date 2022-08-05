@@ -49,3 +49,7 @@ export {default as DeleteInfluencer} from './Admins/Influencers/DeleteInfluencer
 export {default as EditInfluencer} from './Admins/Influencers/EditInfluencer'
 export {default as GetAllInfluencers} from './Influencers/GetAllInfluencers'
 export {default as GetInfluencerById} from './Influencers/GetInfluencerById'
+export {default as CreateStore} from './Stores/CreateStore'
+export {default as EditStore} from './Stores/EditStore'
+export {default as GetStores} from './Stores/GetStores'
+export {default as DeleteStore} from './Stores/DeleteStore'

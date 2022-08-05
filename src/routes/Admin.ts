@@ -27,6 +27,9 @@ import {
 	AddNewInfluencer,
 	EditInfluencer,
 	DeleteInfluencer,
+	DeleteStore,
+	EditStore,
+	CreateStore,
 } from '../controllers'
 import {ValidateAddProductBody, ValidateAdminAuth} from '../middlewares'
 
@@ -64,5 +67,9 @@ router.route('/influencer').get(ValidateAdminAuth, GetInfluencerById)
 router.route('/influencer').post(ValidateAdminAuth, AddNewInfluencer)
 router.route('/influencer').put(ValidateAdminAuth, EditInfluencer)
 router.route('/influencer').delete(ValidateAdminAuth, DeleteInfluencer)
+
+router.route('/store').post(ValidateAdminAuth, CreateStore)
+router.route('/store').put(ValidateAdminAuth, EditStore)
+router.route('/store').delete(ValidateAdminAuth, DeleteStore)
 
 export default router
