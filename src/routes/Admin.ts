@@ -1,3 +1,4 @@
+import { ConfigurationServicePlaceholders } from 'aws-sdk/lib/config_service_placeholders'
 import express from 'express'
 import {
 	AddNewProduct,
@@ -22,6 +23,7 @@ import {
 	Statistics,
 	ArchiveProduct,
 	AddAdminUser,
+	AddAdminUsers,
 	GetAllInfluencers,
 	GetInfluencerById,
 	AddNewInfluencer,
@@ -31,7 +33,7 @@ import {
 	EditStore,
 	CreateStore,
 } from '../controllers'
-import {ValidateAddProductBody, ValidateAdminAuth} from '../middlewares'
+import {ValidateAddProductBody, ValidateAdminAuth, uploadExcel} from '../middlewares'
 
 const router = express.Router()
 router.route('/sign-in').post(AdminSignin)
@@ -47,6 +49,9 @@ router
 router.route('/product').delete(ValidateAdminAuth, DeleteProduct)
 router.route('/product/archive').put(ValidateAdminAuth, ArchiveProduct)
 
+
+//uploadExcel.single('excel')
+router.route('/users').post(ValidateAdminAuth, uploadExcel.single('excel'), AddAdminUsers);
 router.route('/users').get(ValidateAdminAuth, GetAllUsers)
 router.route('/user').delete(ValidateAdminAuth, DeleteUser)
 router.route('/user').put(ValidateAdminAuth, EditUser)
