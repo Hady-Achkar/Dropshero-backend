@@ -42,6 +42,7 @@ import {
 	ValidateAdminAuth,
 	uploadExcel,
 } from '../middlewares'
+import validateAddAmazonProduct from '../middlewares/validateAddAmazonProduct'
 
 const router = express.Router()
 router.route('/sign-in').post(AdminSignin)
@@ -60,10 +61,10 @@ router.route('/amazon-products').get(ValidateAdminAuth, GetAdminAmazonProducts)
 router.route('/amazon-product').get(ValidateAdminAuth, GetAmazonProduct)
 router
 	.route('/amazon-product')
-	.post(ValidateAdminAuth, ValidateAddProductBody, AddNewAmazonProduct)
+	.post(ValidateAdminAuth, validateAddAmazonProduct, AddNewAmazonProduct)
 router
 	.route('/amazon-product')
-	.put(ValidateAdminAuth, ValidateAddProductBody, EditAmazonProduct)
+	.put(ValidateAdminAuth, validateAddAmazonProduct, EditAmazonProduct)
 router.route('/amazon-product').delete(ValidateAdminAuth, DeleteAmazonProduct)
 router
 	.route('/amazon-product/archive')
