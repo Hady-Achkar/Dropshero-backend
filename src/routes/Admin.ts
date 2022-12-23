@@ -1,4 +1,3 @@
-import {ConfigurationServicePlaceholders} from 'aws-sdk/lib/config_service_placeholders'
 import express from 'express'
 import {
 	AddNewProduct,
@@ -23,7 +22,6 @@ import {
 	Statistics,
 	ArchiveProduct,
 	AddAdminUser,
-	AddAdminUsers,
 	GetAllInfluencers,
 	GetInfluencerById,
 	AddNewInfluencer,
@@ -36,6 +34,8 @@ import {
 	DeleteAmazonProduct,
 	EditAmazonProduct,
 	ArchiveAmazonProduct,
+	GetAdminAmazonProducts,
+	GetAmazonProduct,
 } from '../controllers'
 import {
 	ValidateAddProductBody,
@@ -56,11 +56,18 @@ router
 	.put(ValidateAdminAuth, ValidateAddProductBody, EditProduct)
 router.route('/product').delete(ValidateAdminAuth, DeleteProduct)
 router.route('/product/archive').put(ValidateAdminAuth, ArchiveProduct)
-
-//uploadExcel.single('excel')
+router.route('/amazon-products').get(ValidateAdminAuth, GetAdminAmazonProducts)
+router.route('/amazon-product').get(ValidateAdminAuth, GetAmazonProduct)
 router
-	.route('/users')
-	.post(ValidateAdminAuth, uploadExcel.single('excel'), AddAdminUsers)
+	.route('/amazon-product')
+	.post(ValidateAdminAuth, ValidateAddProductBody, AddNewAmazonProduct)
+router
+	.route('/amazon-product')
+	.put(ValidateAdminAuth, ValidateAddProductBody, EditAmazonProduct)
+router.route('/amazon-product').delete(ValidateAdminAuth, DeleteAmazonProduct)
+router
+	.route('/amazon-product/archive')
+	.put(ValidateAdminAuth, ArchiveAmazonProduct)
 router.route('/users').get(ValidateAdminAuth, GetAllUsers)
 router.route('/user').delete(ValidateAdminAuth, DeleteUser)
 router.route('/user').put(ValidateAdminAuth, EditUser)
@@ -81,7 +88,6 @@ router.route('/influencer').get(ValidateAdminAuth, GetInfluencerById)
 router.route('/influencer').post(ValidateAdminAuth, AddNewInfluencer)
 router.route('/influencer').put(ValidateAdminAuth, EditInfluencer)
 router.route('/influencer').delete(ValidateAdminAuth, DeleteInfluencer)
-
 router.route('/store').post(ValidateAdminAuth, CreateStore)
 router.route('/store').put(ValidateAdminAuth, EditStore)
 router.route('/store').delete(ValidateAdminAuth, DeleteStore)
