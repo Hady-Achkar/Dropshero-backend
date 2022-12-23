@@ -13,6 +13,7 @@ export type {IAddProduct} from './IAddProduct'
 export * from './IInfulencer'
 export * from './IStore'
 export * from './IExcelData'
+export type {IAmazonProduct} from './IAmazonProduct'
 export interface CustomRequest<T> extends Request {
 	readonly body: T
 }

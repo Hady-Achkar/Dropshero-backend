@@ -1,5 +1,6 @@
 export {default as AuthRouter} from './Auth'
 export {default as ProductsRouter} from './Products'
+export {default as AmazonProductsRouter} from './AmazonProducts'
 export {default as UsersRouter} from './Users'
 export {default as PaymentsRouter} from './Payments'
 export {default as BundlesRouter} from './Bundles'

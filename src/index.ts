@@ -10,6 +10,7 @@ import {
 	AdminRouter,
 	InfluencersRouter,
 	StoresRouter,
+	AmazonProductsRouter,
 } from './routes'
 import bodyParser from 'body-parser'
 import cors from 'cors'
@@ -42,6 +43,7 @@ const main = async () => {
 	app.use(AttachRealIp)
 	app.use('/auth', AuthRouter)
 	app.use('/products', ProductsRouter)
+	app.use('/amazon-products', AmazonProductsRouter)
 	app.use('/users', UsersRouter)
 	app.use('/payments', PaymentsRouter)
 	app.use('/bundles', BundlesRouter)
