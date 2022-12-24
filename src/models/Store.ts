@@ -6,7 +6,7 @@ const StoresSchema = new Schema<IStore>(
 		name: {
 			type: String,
 			trim: true,
-			required: [true, 'channelName is a required field'],
+			required: [true, 'name is a required field'],
 			unique: true,
 		},
 		category: {
@@ -16,7 +16,12 @@ const StoresSchema = new Schema<IStore>(
 		},
 		link: {
 			type: String,
-			required: [true, 'followers is a required field'],
+			trim: true,
+			required: [true, 'link is a required field'],
+		},
+		type: {
+			type: String, // brand store - amazon store - dropshipping store
+			trim: true,
 		},
 	},
 	{

@@ -3,7 +3,7 @@ import {Stores} from '../../models'
 export default async (req: Request, res: Response) => {
 	try {
 		const {storeId} = req.query
-		const {name, category, link} = req.body
+		const {name, category, link, type} = req.body
 		let storeData = {}
 
 		if (!storeId) {
@@ -19,7 +19,10 @@ export default async (req: Request, res: Response) => {
 			storeData = {...storeData, category}
 		}
 		if (link) {
-			storeData = {...storeData, name}
+			storeData = {...storeData, link}
+		}
+		if (type) {
+			storeData = {...storeData, type}
 		}
 
 		const _store = await Stores.findByIdAndUpdate(
