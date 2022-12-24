@@ -2,11 +2,12 @@ import {Request, Response} from 'express'
 import {Stores} from '../../models'
 export default async (req: Request, res: Response) => {
 	try {
-		const {name, category, link} = req.body
+		const {name, category, link, type} = req.body
 		await Stores.create({
 			name,
 			category,
 			link,
+			type,
 		})
 
 		return res.status(204).json({
