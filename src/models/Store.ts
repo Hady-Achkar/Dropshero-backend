@@ -22,6 +22,7 @@ const StoresSchema = new Schema<IStore>(
 		type: {
 			type: String, // brand store - amazon store - dropshipping store
 			trim: true,
+			required: [true, 'type is a required field'],
 		},
 	},
 	{
