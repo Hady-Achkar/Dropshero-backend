@@ -55,15 +55,8 @@ export default async (req: Request, res: Response) => {
 				requestTime: new Date().toISOString(),
 			})
 		}
-		const {
-			title,
-			thumbnail,
-			price,
-			description,
-			competitorLinks,
-			category,
-			revenue,
-		} = req.body
+		const {title, thumbnail, price, competitorLinks, category, revenue} =
+			req.body
 
 		let productData = {}
 
@@ -121,10 +114,6 @@ export default async (req: Request, res: Response) => {
 				...productData,
 				price: {...price, cost: {...price.cost, max: price.cost.max}},
 			}
-		}
-
-		if (description && description !== '') {
-			productData = {...productData, description: description}
 		}
 
 		if (competitorLinks && competitorLinks !== '') {
