@@ -18,7 +18,6 @@ export interface IAmazonProductPrice {
 export interface IAmazonProduct extends Document {
 	title: string
 	thumbnail: string
-	description: string
 	price: IAmazonProductPrice
 	supplierLinks: string[]
 	competitorLinks: string

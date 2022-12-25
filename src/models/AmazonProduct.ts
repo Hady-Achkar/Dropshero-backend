@@ -48,11 +48,6 @@ const AmazonProductSchema = new Schema<IAmazonProduct>(
 			trim: true,
 			required: [true, 'Thumbnail is a required field'],
 		},
-		description: {
-			type: String,
-			trim: true,
-			required: [true, 'description is a required field'],
-		},
 		price: priceSchema,
 		category: {
 			type: String,

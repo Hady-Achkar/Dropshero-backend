@@ -11,7 +11,6 @@ export default async (req: Request, res: Response) => {
 			supplierLinks,
 			competitorLinks,
 			category,
-			description,
 			revenue,
 		} = req.body
 
@@ -22,7 +21,6 @@ export default async (req: Request, res: Response) => {
 			supplierLinks,
 			competitorLinks,
 			category,
-			description,
 			revenue,
 			isArchived: false,
 		})
