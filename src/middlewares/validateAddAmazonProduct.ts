@@ -4,7 +4,6 @@ import {CustomRequest, IAddProduct} from '../types'
 export default async (req: Request, res: Response, next: NextFunction) => {
 	try {
 		const {
-			description,
 			category,
 			competitorLinks,
 			supplierLinks,
@@ -32,18 +31,6 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 					{
 						name: 'missing thumbnail',
 						field: 'thumbnail',
-					},
-				],
-				requestTime: new Date().toISOString(),
-			})
-		}
-		if (!description || description === '') {
-			return res.status(400).json({
-				status: 'Failure',
-				errors: [
-					{
-						name: 'missing description',
-						field: 'description',
 					},
 				],
 				requestTime: new Date().toISOString(),
