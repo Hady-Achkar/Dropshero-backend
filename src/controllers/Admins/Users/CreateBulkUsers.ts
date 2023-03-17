@@ -7,11 +7,6 @@ import { SendEmail, Stripe } from '../../../lib';
 
 export default async (req: Request, res: Response) => {
   try {
-    if (!req?.file) {
-      return res.status(404).json({
-        message: 'File was not sent',
-      });
-    }
     //@ts-ignore
     const file = req?.file?.excel; // assuming the file is uploaded with key `users`
     const workbook = xlsx.read(file, { type: 'buffer' });
