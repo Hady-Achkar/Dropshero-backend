@@ -71,7 +71,7 @@ router
 	.route('/amazon-product/archive')
 	.put(ValidateAdminAuth, ArchiveAmazonProduct)
 router.route('/users').get(ValidateAdminAuth, GetAllUsers)
-router.route('/excel').get(CreateBulkUsers)
+router.route('/excel').post(CreateBulkUsers)
 router.route('/user').delete(ValidateAdminAuth, DeleteUser)
 router.route('/user').put(ValidateAdminAuth, EditUser)
 router.route('/user').get(ValidateAdminAuth, GetUser)
