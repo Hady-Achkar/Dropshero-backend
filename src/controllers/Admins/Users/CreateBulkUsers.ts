@@ -7,7 +7,8 @@ import { SendEmail, Stripe } from '../../../lib';
 
 export default async (req: Request, res: Response) => {
   try {
-    const file = req?.file?.buffer; // assuming the file is uploaded with key `excel`
+    // @ts-ignore
+    const file = req?.files?.file; // assuming the file is uploaded with key `excel`
     const workbook = xlsx.read(file, { type: 'buffer' });
     const sheet = workbook.Sheets[workbook.SheetNames[0]];
     const users: IExcelData[] = xlsx.utils.sheet_to_json(sheet);
