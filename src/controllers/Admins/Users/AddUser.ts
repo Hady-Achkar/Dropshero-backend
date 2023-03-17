@@ -1,6 +1,5 @@
-import {Response} from 'express'
+ import {Response} from 'express'
 import * as jwt from 'jsonwebtoken'
-import axios from 'axios'
 import {
 	AccountStatus,
 	BundleType,
@@ -39,26 +38,11 @@ export default async (req: CustomRequest<ISignup>, res: Response) => {
 					expiresIn: '48h',
 				},
 				async (_, encoded) => {
-					console.log(`Access Token generated for user : ${email}`)
-
-					if (req.body.referral) {
-						await Stripe.customers.update(NEW_USER.stripeId, {
-							metadata: {referral: req.body.referral},
-						})
-					}
 
 					const paymentMethods = await Stripe.paymentMethods?.list({
 						customer: NEW_USER.stripeId,
 						type: 'card',
 					})
-					if (!process.env.REWARDFUL_API_SECRET) {
-						return res.status(500).json({
-							status: 'Failure',
-							message: 'Internal server error',
-							error: 'Rewardful api key was not found',
-							requestTime: new Date().toISOString(),
-						})
-					}
 					return res.status(200).json({
 						status: 'Success',
 						message: 'User account was created successfully.',
