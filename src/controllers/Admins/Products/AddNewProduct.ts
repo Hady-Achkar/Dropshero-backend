@@ -4,36 +4,15 @@ import {Products} from '../../../models'
 
 export default async (req: CustomRequest<IAddProduct>, res: Response) => {
 	try {
-		const {
-			isHot,
-			title,
-			whereToSell,
-			price,
-			thumbnail,
-			supplierLinks,
-			competitorLinks,
-			category,
-			description,
-			marketingAngel,
-			marketingVideo,
-			targets,
-			advertisementText,
-		} = req.body
+		const {isHot, title, price, thumbnail, category, description} = req.body
 
 		const newProduct = await Products.create({
 			isHot,
 			title,
-			whereToSell,
 			price,
 			thumbnail,
-			supplierLinks,
-			competitorLinks,
 			category,
 			description,
-			marketingAngel,
-			marketingVideo,
-			targets,
-			advertisementText,
 			isArchived: false,
 		})
 		return res.status(200).json({

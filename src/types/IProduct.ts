@@ -20,16 +20,9 @@ export interface IProduct extends Document {
 	thumbnail: string
 	description: string
 	price: IProductPrice
-	marketingAngel: string[]
-	whereToSell: string[]
-	marketingVideo: string[]
-	supplierLinks: string[]
-	competitorLinks: string
 	isHot: boolean
 	category: string
 	createdAt: Date
 	updatedAt: Date
-	advertisementText: string
-	targets: string
 	isArchived: boolean
 }

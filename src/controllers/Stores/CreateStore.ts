@@ -1,13 +1,15 @@
 import {Request, Response} from 'express'
 import {Stores} from '../../models'
-export default async (req: Request, res: Response) => {
+import {CustomRequest, IStore} from '../../types'
+export default async (req: CustomRequest<IStore>, res: Response) => {
 	try {
-		const {name, category, link, type} = req.body
+		const {name, category, link, type, description} = req.body
 		await Stores.create({
 			name,
 			category,
 			link,
 			type,
+			description,
 		})
 
 		return res.status(204).json({

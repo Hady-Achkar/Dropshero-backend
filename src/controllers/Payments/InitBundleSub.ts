@@ -33,6 +33,7 @@ export default async (req: Request, res: Response) => {
 				requestTime: new Date().toISOString(),
 			})
 		}
+
 		const _verifyPrice = await Stripe.prices?.retrieve(priceId as string, {
 			expand: ['product'],
 		})
@@ -79,7 +80,8 @@ export default async (req: Request, res: Response) => {
 				requestTime: new Date().toISOString(),
 			})
 		}
-		if (_verifyPrice.recurring !== null) {
+		//@ts-ignore
+		if (_verifyPrice?.product?.metadata?.tier === 'basic') {
 			//@ts-ignore
 			if (_verifyUserStripe.invoice_settings.default_payment_method === null) {
 				return res.status(400).json({
@@ -135,7 +137,8 @@ export default async (req: Request, res: Response) => {
 					})
 				}
 			}
-		} else {
+			//@ts-ignore
+		} else if (_verifyPrice?.product?.metadata?.tier === 'pro') {
 			const paymentIntent = await Stripe.paymentIntents.create({
 				amount: _verifyPrice.unit_amount as number,
 				currency: 'usd',

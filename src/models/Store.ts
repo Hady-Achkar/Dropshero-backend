@@ -14,6 +14,11 @@ const StoresSchema = new Schema<IStore>(
 			trim: true,
 			required: [true, 'category is a required field'],
 		},
+		description: {
+			type: String,
+			trim: true,
+			required: [true, 'description is a required field'],
+		},
 		link: {
 			type: String,
 			trim: true,
