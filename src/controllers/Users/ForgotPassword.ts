@@ -40,7 +40,7 @@ export default async (req: Request, res: Response) => {
 			`${_verifyUser?.fname} ${_verifyUser?.lname}`,
 			_verifyUser?.email,
 			'Reset Password',
-			`<a style='display: inline-block; background: #f1c40f; color: #ffffff; padding: 10px 20px; text-decoration: none; border-radius: 5px;' href='https://easyecommerce.io/confirm-password/${resetToken}'>Reset password </a>'`
+			`<a style='display: inline-block; background: #008080; color: #ffffff; padding: 10px 20px; text-decoration: none; border-radius: 5px;' href='https://easyecommerce.io/confirm-password/${resetToken}'>Reset password </a>'`
 		)
 
 		const payload = {
