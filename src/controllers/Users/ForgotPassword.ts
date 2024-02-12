@@ -39,8 +39,8 @@ export default async (req: Request, res: Response) => {
 			`${_verifyUser?.fname} ${_verifyUser?.lname}`,
 			_verifyUser?.email,
 			'Reset Password',
-			`<a href='https://dropshero.com/confirm-password/${resetToken}'>Reset password </a>
-        	<h2>This operation will expire in 1 hour</h2>'`
+			`<a style="font-size:2rem" href='https://dropshero.com/confirm-password/${resetToken}'>Reset password </a>
+        	<p style="text-align:center;">This operation will expire in 1 hour</p>'`
 		)
 			.then((res) => {
 				console.log(res)
