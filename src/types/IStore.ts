@@ -5,4 +5,6 @@ export interface IStore extends Document {
 	name: string
 	category: string
 	link: string
+	description: string
+	type: string
 }

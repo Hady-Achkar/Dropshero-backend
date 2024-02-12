@@ -14,7 +14,7 @@ export default () => {
 			useNewUrlParser: true,
 			useCreateIndex: true,
 		})
-		.then((res) => {
+		.then(() => {
 			console.log(`[i] Connected to database: ${mongoURI}`)
 		})
 		.catch((err) => {

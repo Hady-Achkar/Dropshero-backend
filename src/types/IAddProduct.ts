@@ -12,13 +12,6 @@ export interface IAddProduct {
 			readonly max: number
 		}
 	}
-	readonly marketingAngel: string[]
-	readonly whereToSell: string[]
-	readonly marketingVideo: string[]
-	readonly supplierLinks: string[]
-	readonly competitorLinks: string
 	readonly isHot: boolean
 	readonly category: string
-	readonly advertisementText: string
-	readonly targets: string
 }
