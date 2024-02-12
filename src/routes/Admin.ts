@@ -38,11 +38,7 @@ import {
 	GetAmazonProduct,
 	CreateBulkUsers,
 } from '../controllers'
-import {
-	ValidateAddProductBody,
-	ValidateAdminAuth,
-	uploadExcel,
-} from '../middlewares'
+import {ValidateAddProductBody, ValidateAdminAuth} from '../middlewares'
 import validateAddAmazonProduct from '../middlewares/validateAddAmazonProduct'
 
 const router = express.Router()

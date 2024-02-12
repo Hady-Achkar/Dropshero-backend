@@ -1,4 +1,4 @@
-import {Request, Response} from 'express'
+import {Response} from 'express'
 import {Stores} from '../../models'
 import {CustomRequest, IStore} from '../../types'
 export default async (req: CustomRequest<IStore>, res: Response) => {

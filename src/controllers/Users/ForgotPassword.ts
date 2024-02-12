@@ -12,6 +12,7 @@ export default async (req: Request, res: Response) => {
 		RedisClient.on('error', (err) => console.log('Redis Client Error', err))
 		RedisClient.on('connect', (err) => console.log('Redis Client Error', err))
 		const {email: USER_EMAIL} = req.body
+
 		if (!USER_EMAIL || USER_EMAIL === '') {
 			return res.status(400).json({
 				status: 'Failure',
@@ -35,19 +36,13 @@ export default async (req: Request, res: Response) => {
 		const resetToken = v4()
 		const key = process.env.FORGET_PASSWORD_PREFIX + resetToken
 
-		await SendEmail(
+		const sendEmail = await SendEmail(
 			`${_verifyUser?.fname} ${_verifyUser?.lname}`,
 			_verifyUser?.email,
 			'Reset Password',
-			`<a style="font-size:2rem" href='https://dropshero.com/confirm-password/${resetToken}'>Reset password </a>
-        	<p style="text-align:center;">This operation will expire in 1 hour</p>'`
+			`<a style='display: inline-block; background: #f1c40f; color: #ffffff; padding: 10px 20px; text-decoration: none; border-radius: 5px;' href='https://easyecommerce.io/confirm-password/${resetToken}'>Reset password </a>'`
 		)
-			.then((res) => {
-				console.log(res)
-			})
-			.catch((err) => {
-				console.log('not working')
-			})
+
 		const payload = {
 			userId: _verifyUser,
 		}
@@ -65,5 +60,10 @@ export default async (req: Request, res: Response) => {
 				requestTime: new Date().toISOString(),
 			})
 		}
+		return res.status(500).json({
+			message: 'Internal Server Error',
+			error: err,
+			requestTime: new Date().toISOString(),
+		})
 	}
 }
