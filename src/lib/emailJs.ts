@@ -41,7 +41,7 @@ const sendEmail = async (
                 <link href='https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700' rel='stylesheet'>
             </head>
         
-            <body width='100%' style='margin: 0; padding: 0 !important; mso-line-height-rule: exactly; background-color: #f1f1f1;'>
+            <body width='100%' style='margin: 0; padding: 0 !important; mso-line-height-rule: exactly;'>
                 <center style='width: 100%;'>
                 <div style='max-width: 600px; margin: 0 auto;' class='email-container'>
                     <!-- BEGIN BODY -->
@@ -51,7 +51,7 @@ const sendEmail = async (
                           <table role='presentation' border='0' cellpadding='0' cellspacing='0' width='100%'>
                               <tr>
                                   <td class='logo' style='text-align: center;'>
-                                    <h1><a href='https://easyecommerce.io'>Easyecommerce.io</a></h1>
+                                    <p><a href='https://easyecommerce.io'>Easyecommerce.io</a></p>
                                   </td>
                               </tr>
                           </table>
