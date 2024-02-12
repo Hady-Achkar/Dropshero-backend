@@ -37,15 +37,12 @@ const sendEmail = async (
                 <meta name='viewport' content='width=device-width'> <!-- Forcing initial-scale shouldn't be necessary -->
                 <meta http-equiv='X-UA-Compatible' content='IE=edge'> <!-- Use the latest (edge) version of IE rendering engine -->
                 <meta name='x-apple-disable-message-reformatting'>  <!-- Disable auto-scale in iOS 10 Mail entirely -->
-                <title></title> <!-- The title tag shows in email notifications, like Android 4.4. -->
+                <title>Reset Your Password</title> <!-- The title tag shows in email notifications, like Android 4.4. -->
                 <link href='https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700' rel='stylesheet'>
             </head>
-
+        
             <body width='100%' style='margin: 0; padding: 0 !important; mso-line-height-rule: exactly; background-color: #f1f1f1;'>
                 <center style='width: 100%; background-color: #f1f1f1;'>
-                <div style='display: none; font-size: 1px;max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;'>
-                  &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
-                </div>
                 <div style='max-width: 600px; margin: 0 auto;' class='email-container'>
                     <!-- BEGIN BODY -->
                   <table align='center' role='presentation' cellspacing='0' cellpadding='0' border='0' width='100%' style='margin: auto;'>
@@ -66,7 +63,10 @@ const sendEmail = async (
                             <tr>
                                 <td style='padding: 0 2.5em; text-align: center; padding-bottom: 3em;'>
                                     <div class='text'>
+                                        <h2>Reset Your Password</h2>
+                                        <p>We received a request to reset your password for your Easyecommerce.io account. Please click the button below to proceed.</p>
                                         ${text}
+                                        <p>If you did not request a password reset, please ignore this email or contact support if you have questions.</p>
                                     </div>
                                 </td>
                             </tr>
@@ -75,7 +75,7 @@ const sendEmail = async (
                       </tr><!-- end tr -->
                   <!-- 1 Column Text + Button : END -->
                   </table>
-
+        
                 </div>
               </center>
             </body>
