@@ -6,6 +6,7 @@ import {isValidObjectId} from 'mongoose'
 export default async (req: CustomRequest<IAddProduct>, res: Response) => {
 	try {
 		const {productId} = req.query
+
 		if (!productId) {
 			return res.status(404).json({
 				status: 'Failure',
@@ -116,9 +117,7 @@ export default async (req: CustomRequest<IAddProduct>, res: Response) => {
 			productData = {...productData, description: description}
 		}
 
-		if (isHot) {
-			productData = {...productData, isHot: isHot}
-		}
+		productData = {...productData, isHot: isHot}
 
 		if (category && category !== '') {
 			productData = {...productData, category: category}
@@ -126,12 +125,8 @@ export default async (req: CustomRequest<IAddProduct>, res: Response) => {
 
 		const UPDATED_PRODUCT = await Products.findByIdAndUpdate(
 			productId,
-			{
-				$set: productData,
-			},
-			{
-				new: true,
-			}
+			{$set: productData},
+			{new: true}
 		)
 
 		return res.status(200).json({
