@@ -49,25 +49,12 @@ const ProductsSchema = new Schema<IProduct>(
 			required: [true, 'description is a required field'],
 		},
 		price: priceSchema,
-		marketingAngel: [String],
-		whereToSell: [String],
-		marketingVideo: [String],
 		category: {
 			type: String,
 			trim: true,
 		},
 		isHot: {
 			type: Boolean,
-		},
-		supplierLinks: [String],
-		competitorLinks: {
-			type: String,
-		},
-		advertisementText: {
-			type: String,
-		},
-		targets: {
-			type: String,
 		},
 		isArchived: {
 			type: Boolean,
